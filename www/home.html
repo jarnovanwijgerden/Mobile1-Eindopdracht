@@ -25,7 +25,9 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+        
+
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Eet.nu App</title>
     </head>
@@ -39,10 +41,17 @@
 
         <p style="Margin-top:40px;">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden in opdracht van Avans Hogeschool (Den Bosch)</p>
 
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="js/api.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+            $(document).ready(function()
+            {
+                //var restaurant = getAllRestaurants();
+            });
         </script>
     </body>
 </html>
