@@ -85,12 +85,11 @@
 .homeFooter
 {
     font-size: 14px;
-    position: absolute;
-    bottom: -14px;
     width: 100%;
     background-color: #A32271;
     color: #FFFFFF;
     padding: 20px;
+    box-sizing:border-box;
 }
 
 
