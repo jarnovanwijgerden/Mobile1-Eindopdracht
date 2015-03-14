@@ -2,13 +2,11 @@
 var lat;
 var lng;
 var url;
-$(document).ready(function()
+
+
+function getQueryURL()
 {
-	$("#btngo").on("click", function()
-	{
-		alert("klikie");
 		url = "https://api.eet.nu/venues?";
-		//tags=snackbar&sort_by=rating&max_distance=50&geolocation=51.882004,5.291087
 		var _checkbox = $("#chkrating");
 		var _afstand = $("#distance");
 		var _categorie = $("#category");
@@ -24,10 +22,13 @@ $(document).ready(function()
 		if(_afstand.val() != "none")
 		{
 			url += "max_distance="+ _afstand.val();
-			getGeolocation();
-		}	
-	});
-});
+			return getGeolocation();
+		}
+		else
+		{
+			return url;
+		}
+}
 
 function getGeolocation()
 {
@@ -38,7 +39,7 @@ function onSuccess(position)
     lat = position.coords.latitude;
     lng = position.coords.longitude;
     url += "&geolocation=" + lat + "," + lng;
-    alert("URL = " + url);
+  	return url;
 }
 function onError(error)
 {

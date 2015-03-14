@@ -10,6 +10,10 @@ function getRestaurantByID(id)
 	var restaurant =  getRequest("https://api.eet.nu/venues/"+id);
 	return restaurant;
 }
+function getRestaurantsByQuery(query)
+{
+    var restaurants = getRequest(query);
+}
 
 function getRequest(newUrl) {
 	var returndata = "ka";

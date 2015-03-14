@@ -104,7 +104,11 @@
             app.initialize();
             $(document).ready(function()
             {
-                //var restaurant = getAllRestaurants();
+               $("#btngo").on("click", function()
+                {
+                    var query = getQueryURL();
+                    alert(query);
+                });
             });
         </script>
 <!--     </body>
