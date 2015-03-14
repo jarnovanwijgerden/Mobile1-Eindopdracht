@@ -2,7 +2,7 @@
   <name>Mobile1 Eindopdracht</name>
   <description>Door Louis Hol en Jarno van Wijgerden</description>
   <author href="http://phonegap.com" email="support@phonegap.com">PhoneGap Team</author>
-  <content src="home.html"/>
+  <content src="index.html"/>
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="default"/>
   <preference name="target-device" value="universal"/>
