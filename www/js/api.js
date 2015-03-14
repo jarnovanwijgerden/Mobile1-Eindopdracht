@@ -11,7 +11,6 @@ function getRestaurantByID(id)
 	return restaurant;
 }
 
-
 function getRequest(newUrl) {
 	var returndata = "ka";
     $.ajax({
