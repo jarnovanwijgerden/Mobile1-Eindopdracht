@@ -1,0 +1,109 @@
+
+        <script type="text/javascript">
+        $(document).ready(function()
+        {
+           var data = localStorage.getItem("restaurant");
+           alert(data);
+        });
+
+        </script>        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+        <div style="background: #f1f1f1;">
+            <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
+        </div> 
+        <div data-role="tabs" id="tabs">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#one" data-ajax="false">Home</a></li>
+              <li><a href="#two" data-ajax="false">Reviews</a></li>
+              <li><a href="#three" data-ajax="false">Contact</a></li>
+            </ul>
+          </div>
+          <div id="one" class="ui-body-d ui-content">
+               <p id="info" class="homeInfo"></p> 
+               <p id="details" class="basicText"></p>
+          </div>
+          <div id="two">
+       <ul id="reviews" data-role="listview" data-inset="true">
+            <li data-role="list-divider">Lijst met reviews<span id="count" class="ui-li-count">2</span></li>
+        </ul>
+          </div>
+            
+          <div id="three">
+            <p class="homeInfo">Contact gegevens</p> 
+            <p id="street" class="basicText"> Straat : </p>
+            <p id="city" class="basicText"> Woonplaats : </p>
+            <p id="regio" class="basicText"> Provincie : </p>
+            <p id="post" class="basicText"> Postcode : </p>
+            <p id="country" class="basicText"> Land : </p>
+            <p id="tel" class="basicText"> Telefoon : </p>
+            <p id="url" class="basicText"> Website : </p>
+            
+          </div>
+
+        </div>
+        <script type="text/javascript" src="js/api.js"></script>
+         <script type="text/javascript">
+            $(document).ready(function()
+            {
+
+
+               //home
+               var data =  JSON.parse(localStorage.getItem("restaurant"));
+               $("#info").html("Restaurant " + data.name);
+
+               var description = data.description;
+               if(description == null)
+               {
+                    description = "Dit restaurant heeft geen beschrijving beschikbaar";
+               }
+               $("#details").html(description);
+
+
+               //reviews
+               getReviewsByID(data.id, function(response)
+               {
+                    var reviews = JSON.parse(response);
+                    $("#count").html(reviews.results.length);
+                    for(var object in reviews.results)
+                    {
+                        var review = reviews.results[object];
+                        var text = '<li><h2>' + review.author.name + '</h2><p>' + review.body + '</p><p class="ui-li-aside"><strong>' + review.rating + '/100</strong> Waardering</p></li>';
+                        $("#reviews").append(text);
+                    }
+                    $("#reviews").listview("refresh");
+               });
+
+               //contact
+               $("#street").append(data.address.street);
+               $("#city").append(data.address.city);
+               $("#regio").append(data.address.region);
+               $("#post").append(data.address.zipcode);
+               $("#country").append(data.address.country);
+               $("#tel").append(data.telephone);
+               $("#url").append(data.website_url);
+
+
+
+
+
+
+
+            });
+        </script>
+        
+        <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
+
+
+<!--     </body>
+</html>
+ -->
+
+
+
+   
+

@@ -5,10 +5,19 @@ function getAllRestaurants()
 	return restaurant;
 }
 
-function getRestaurantByID(id)
+function getRestaurantByID(id, callback)
 {
-	var restaurant =  getRequest("https://api.eet.nu/venues/"+id);
-	return restaurant;
+	getRequest("https://api.eet.nu/venues/"+id, function(data)
+        {
+            callback(data);
+        });
+}
+function getReviewsByID(id, callback)
+{
+    getRequest("https://api.eet.nu/venues/"+id+"/reviews", function(data)
+        {
+            callback(data);
+        });
 }
 function getRestaurantsByQuery(query, callback)
 {
@@ -19,7 +28,6 @@ function getRestaurantsByQuery(query, callback)
 }
 
 function getRequest(newUrl, callback) {
-	var returndata = "ka";
     $.ajax({
         url: newUrl,
         async: false,

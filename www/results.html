@@ -34,6 +34,10 @@
         <ul id="restaurants" data-role="listview"  data-filter="true" data-input="#filterable-input">
         </ul>    
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
+        <script type="text/javascript" src="js/api.js"></script>
+        <script type="text/javascript" src="js/click.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
 
         $(document).ready(function()
@@ -47,29 +51,14 @@
             $('#restaurants li').click(function(e) 
             { 
                 var dataid = $(this).attr('data-id');
-                localStorage.setItem("data-id", dataid);
-                alert("Klik event op restaurant " + $(this).text() + " heeft id " + dataid);
+                getRestaurantByID(dataid, function(data)
+                {
+                    localStorage.setItem("restaurant", data);
+                    window.location = "details.html";
+                });
             });
         });
         </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!--     </body>
 </html>
