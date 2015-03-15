@@ -12,8 +12,12 @@
         <title>Eet.nu App</title>
     </head>
     <body> -->
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+
         <div style="background: #f1f1f1;">
             <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
         </div>
@@ -106,8 +110,16 @@
             {
                $("#btngo").on("click", function()
                 {
-                    var query = getQueryURL();
-                    alert(query);
+                    getQueryURL(function(url)
+                    {
+                        getRestaurantsByQuery(url, function(data)
+                        {
+                            localStorage.setItem("data", data);
+                            window.location = "results.html";
+
+                        });
+                  
+                    });
                 });
             });
         </script>

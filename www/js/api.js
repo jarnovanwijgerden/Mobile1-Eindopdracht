@@ -10,12 +10,15 @@ function getRestaurantByID(id)
 	var restaurant =  getRequest("https://api.eet.nu/venues/"+id);
 	return restaurant;
 }
-function getRestaurantsByQuery(query)
+function getRestaurantsByQuery(query, callback)
 {
-    var restaurants = getRequest(query);
+    getRequest(query, function(data)
+    {
+        callback(data);
+    });
 }
 
-function getRequest(newUrl) {
+function getRequest(newUrl, callback) {
 	var returndata = "ka";
     $.ajax({
         url: newUrl,
@@ -24,8 +27,7 @@ function getRequest(newUrl) {
         type: "GET",
         cache: false,
         success: function (data) {
-            returndata = data;
+            callback(data);
         }
     });
-    return returndata;
 } 

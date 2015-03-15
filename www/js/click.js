@@ -2,47 +2,53 @@
 var lat;
 var lng;
 var url;
+var _checkbox = $("#chkrating");
+var _afstand = $("#distance");
+var _categorie = $("#category");
 
 
-function getQueryURL()
+
+function getQueryURL(callback)
 {
-		url = "https://api.eet.nu/venues?";
-		var _checkbox = $("#chkrating");
-		var _afstand = $("#distance");
-		var _categorie = $("#category");
-
-		if(_categorie.val() != "none")
+	url = "https://api.eet.nu/venues?";
+	if(_categorie.val() != "none")
+	{
+		url += "tags="+ _categorie.val() + "&";
+	}
+	if(_checkbox.is(':checked'))
+	{
+		url += "sort_by=rating&";
+	}
+	if(_afstand.val() != "none")
+	{
+		getGeolocation(function(position)
 		{
-			url += "tags="+ _categorie.val() + "&";
-		}
-		if(_checkbox.is(':checked'))
-		{
-			url += "sort_by=rating&";
-		}
-		if(_afstand.val() != "none")
-		{
-			url += "max_distance="+ _afstand.val();
-			return getGeolocation();
-		}
-		else
-		{
-			return url;
-		}
+			if(position != null)
+			{
+				url += "max_distance="+ _afstand.val();
+				url += "&geolocation=" + position.coords.latitude + "," + position.coords.longitude;
+				callback(url);
+			}
+		});
+	}
+	else
+	{
+		callback(url);
+	}
 }
 
-function getGeolocation()
+
+function getGeolocation(callback)
 {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });
-}
-function onSuccess(position) 
-{ 
-    lat = position.coords.latitude;
-    lng = position.coords.longitude;
-    url += "&geolocation=" + lat + "," + lng;
-  	return url;
-}
-function onError(error)
-{
-	alert('code: ' + error.code + '\n' +
-          'message: ' + error.message + '\n');
+
+    navigator.geolocation.getCurrentPosition(
+    	function(position)
+    	{
+   			callback(position);
+    	}, 
+    	function(error)
+    	{
+    	   	alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+    	   	callback(null);
+    	}, 	{ enableHighAccuracy: true });
 }
