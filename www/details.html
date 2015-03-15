@@ -34,7 +34,6 @@
             <p id="post" class="basicText"> Postcode : </p>
             <p id="country" class="basicText"> Land : </p>
             <p id="tel" class="basicText"> Telefoon : </p>
-            <a href="tel:0620852002">Call</a>
             <p id="url" class="basicText"> Website : </p>
             
           </div>
@@ -83,7 +82,7 @@
                $("#regio").append(data.address.region);
                $("#post").append(data.address.zipcode);
                $("#country").append(data.address.country);
-               $("#tel").append(data.telephone);
+               $("#tel").append('<a href="tel:' + data.telephone + '">'+ data.telephone + '</a>');
                $("#url").append("<a id='website'>"+data.website_url+"</a>");
 
                $("#website").on("click",function()
