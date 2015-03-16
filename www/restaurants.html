@@ -111,10 +111,13 @@
             //{
                $("#btngo").on("click", function()
                 {
+                    alert("Klik");
                     getQueryURL(function(url)
-                    {                        
+                    {             
+                        alert("URL opgehaald");           
                         getRestaurantsByQuery(url, function(data)
-                        {
+                        {   
+                            alert("Callback");
                             localStorage.setItem("data", data);
                             window.location = "results.html";
                         });

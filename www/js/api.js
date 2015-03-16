@@ -26,7 +26,7 @@ function getQueryURL(callback)
         {
             if(position != null)
             {
-                url += "max_distance="+ _afstand.val();
+                url += "max_distance="+ $(_afstand).val();
                 url += "&geolocation=" + position.coords.latitude + "," + position.coords.longitude;
                 callback(url);
             }
@@ -37,7 +37,6 @@ function getQueryURL(callback)
         callback(url);
     }
 }
-
 
 function getAllRestaurants()
 {
@@ -68,6 +67,7 @@ function getRestaurantsByQuery(query, callback)
 }
 
 function getRequest(newUrl, callback) {
+    alert("Opgevraagde url " + newUrl);
     $.ajax({
         url: newUrl,
         async: false,
