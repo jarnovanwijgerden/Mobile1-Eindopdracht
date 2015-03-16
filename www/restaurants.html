@@ -100,9 +100,9 @@
             <option value="20"> 20 KM </option>
             <option value="50"> 50 KM </option>
         </select>
-        <div class="basicText">
-            <input id="chkrating" type="checkbox" name="sort" value="sort">Sorteren op waardering
-        </div>
+  
+    
+            <label class="label basicText"><input class="checkbox" type="checkbox" />      Sorteer op waardering</label>
         
         <button id="btngo" class="basicText" style="margin-left:10%; width:80%">Toon resultaten</button>
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
@@ -117,9 +117,7 @@
                         {
                             localStorage.setItem("data", data);
                             window.location = "results.html";
-
                         });
-                  
                     });
                 });
             //});
