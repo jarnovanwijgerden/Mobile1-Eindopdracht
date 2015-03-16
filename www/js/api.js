@@ -67,7 +67,6 @@ function getRestaurantsByQuery(query, callback)
 }
 
 function getRequest(newUrl, callback) {
-    alert("Opgevraagde url " + newUrl);
     $.ajax({
         url: newUrl,
         async: false,

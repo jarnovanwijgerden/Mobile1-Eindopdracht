@@ -16,6 +16,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+$(document).ready(function() {
+    $('.li').click(function() {
+        var url = $(this).attr('data-url');
+        window.location = url;
+    });
+});
+
+
 var app = {
     // Application Constructor
     initialize: function() {

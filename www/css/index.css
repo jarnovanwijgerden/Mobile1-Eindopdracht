@@ -22,13 +22,14 @@
 
 
 .label {
-    display: block;
+    display: inline !important;
     padding-left: 20px;
     text-indent: -15px;
+    vertical-align: middle;
 
 }
 .checkbox {
-
+    display: inline;
     padding-left: 10px!;
     margin-left: 20px!;
     width: 13px;
@@ -39,9 +40,20 @@
     position: relative;
     top: -1px;
     *overflow: hidden;
+    vertical-align: middle;
 }
 
+.ui-checkbox {
+    display: inline;
+}
 
+.ui-checkbox input {
+    left: 20px !important;
+}
+
+.ui-mobile label {
+    margin-left: 40px !important;
+}
 
 .header {
     width: 100%;
@@ -63,6 +75,7 @@
 .nav-container:hover .nav {
     height: auto;
 }
+
 .nav li {
     list-style-type: none;
     height: 50px;
@@ -75,7 +88,12 @@
 }
 .nav li a {
     color: #fff;
-    text-decoration: none;              
+    text-decoration: none;    
+
+}
+.nav li:visited
+{
+    color: #FFF;
 }
 .homeImage
 {

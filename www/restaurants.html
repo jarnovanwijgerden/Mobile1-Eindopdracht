@@ -3,9 +3,9 @@
      <div data-role="page" id="restaurants">
 
 
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="js/device.js"></script>
@@ -23,10 +23,10 @@
             <nav class="nav-container">
                 <div class="nav-toggle">Menu</div>
                 <ul class="nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="restaurants.html">Restaurant zoeken</a></li>
-                    <li><a href="contact.html">Contact gegevens</a></li>
-                    <li><a href="settings.html">Settings</a></li>
+                    <li class="li" data-url="index.html">Home</li>
+                    <li class="li" data-url="restaurants.html">Restaurant</li>
+                    <li class="li" data-url="contact.html">Contact</li>
+                    <li class="li" data-url="settings.html">Settings</li>
                 </ul>
             </nav>
         </header>
@@ -102,22 +102,25 @@
         </select>
   
     
-            <label class="label basicText"><input class="checkbox" type="checkbox" />      Sorteer op waardering</label>
-        
+        <input class="checkbox" type="checkbox" /><label class="basicText label" > Sorteer op waardering </label>
+       
         <button id="btngo" class="basicText" style="margin-left:10%; width:80%">Toon resultaten</button>
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
         <script type="text/javascript">
             //$(document).ready(function()
             //{
+
+                $("#goback").on("click",function()
+                {
+  
+                    window.location = "index.html";
+                });
                $("#btngo").on("click", function()
                 {
-                    alert("Klik");
                     getQueryURL(function(url)
-                    {             
-                        alert("URL opgehaald");           
+                    {                     
                         getRestaurantsByQuery(url, function(data)
                         {   
-                            alert("Callback");
                             localStorage.setItem("data", data);
                             window.location = "results.html";
                         });
