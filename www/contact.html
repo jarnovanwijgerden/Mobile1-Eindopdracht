@@ -22,7 +22,7 @@
         <script type="text/javascript" src="js/index.js"></script>
 
 
-        <title>Eet.nu App</title>
+        <title>Contact</title>
     </head>
     <body>
        
@@ -42,10 +42,19 @@
             </nav>
         </header>
 
-        <p class="homeInfo">Zoek eenvoudig restaurants bij jouw in de buurt!</p>
+        <p class="homeInfo">Contact</p>
         
-        <p class="homeDetails basicText">Via deze App kan er op restaurants gezocht worden, dit door middel van categorie, waarderingen van klanten maar ook op afstand van jouw huidige locatie. Ook kan er contactgegevens gevonden worden van restaurants en kunnen er reviews bekeken worden.</p>
+        <p class="homeDetails basicText">Telefoon: 0612345678<br><br>Email: Supergoeieapp@eet.nu<br><br>Land: Nederland<br><br>Website: <a id='website'>www.eet.nu</p>
+
+        <script type="text/javascript">
+
+               $("#website").on("click",function()
+               {
+                    appBrowser("www.eet.nu");
+               });
+            });</script>
 
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
+
     </body>
 </html>
