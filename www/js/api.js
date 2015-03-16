@@ -3,24 +3,24 @@
 var lat;
 var lng;
 var url;
-var _checkbox = $("#chkrating");
-var _afstand = $("#distance");
-var _categorie = $("#category");
+var _checkbox = "#chkrating";
+var _afstand = "#distance";
+var _categorie = "#category";
 
 
 
 function getQueryURL(callback)
 {
     url = "https://api.eet.nu/venues?";
-    if(_categorie.val() != "none")
+    if($(_categorie).val() != "none")
     {
         url += "tags="+ _categorie.val() + "&";
     }
-    if(_checkbox.is(':checked'))
+    if($(_checkbox).is(':checked'))
     {
         url += "sort_by=rating&";
     }
-    if(_afstand.val() != "none")
+    if($(_afstand).val() != "none")
     {
         getGeolocation(function(position)
         {
@@ -76,6 +76,10 @@ function getRequest(newUrl, callback) {
         cache: false,
         success: function (data) {
             callback(data);
+        },
+        error: function(error)
+        {
+            alert("Helaas er ging iets mis" + JSON.stringify(error));
         }
     });
 } 

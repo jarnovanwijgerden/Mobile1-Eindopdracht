@@ -1,27 +1,16 @@
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
-        <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-
-        <!-- 
-        <title>Eet.nu App</title>
-    </head>
-    <body> -->
-        <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> -->
-        <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-        <!-- <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
 
 
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <div data-role="page" id="results">
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/device.js"></script>
+        <script type="text/javascript" src="js/api.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
 
         <div style="background: #f1f1f1;">
             <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
@@ -37,30 +26,20 @@
                 </ul>
             </nav>
         </header>
-        <p class="homeInfo">Zoekresultaten : </p>
-
-
-     
+        <p class="homeInfo">Zoekresultaten : </p>     
         <input type="text" data-type="search" id="filterable-input">
         <ul id="restaurants" data-role="listview"  data-filter="true" data-input="#filterable-input">
         </ul>    
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
-        <script type="text/javascript" src="js/device.js"></script>
-        <script type="text/javascript" src="js/api.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-
-        $(document).ready(function()
-        {
             var data = JSON.parse(localStorage.getItem("data"));
             for(var object in data.results)
             {
                 $("#restaurants").append(' <li data-id="' + data.results[object].id + '"><a href="">' + data.results[object].name +  '</a></li>');
             }
-            $("#restaurants").listview("refresh");
-            $('#restaurants li').click(function(e) 
+            $('#restaurants li').on("click", function(e) 
             { 
+                alert("Klik");
                 var dataid = $(this).attr('data-id');
                 getRestaurantByID(dataid, function(data)
                 {
@@ -68,14 +47,10 @@
                     window.location = "details.html";
                 });
             });
-        });
+
+            // $("#restaurants").listview("refresh");
+           
         </script>
-
-<!--     </body>
-</html>
- -->
-
-
-
+    </div>
    
 
