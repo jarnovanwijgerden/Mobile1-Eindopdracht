@@ -35,7 +35,7 @@
             {
                 $("#restaurants").append(' <li data-id="' + data.results[object].id + '"><a href="">' + data.results[object].name +  '</a></li>');
             }
-            $('#restaurants li').on("click", function(e) 
+            $('#restaurants li').on("click", function() 
             { 
 
                 var dataid = $(this).attr('data-id');
