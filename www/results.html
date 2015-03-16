@@ -1,6 +1,5 @@
 
-
-    <div data-role="page" id="results">
+        <div data-role="page" id="results">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -37,7 +36,6 @@
             }
             $('#restaurants li').on("click", function() 
             { 
-
                 var dataid = $(this).attr('data-id');
                 getRestaurantByID(dataid, function(data)
                 {
@@ -45,9 +43,6 @@
                     window.location = "details.html";
                 });
             });
-
-            // $("#restaurants").listview("refresh");
-           
         </script>
     </div>
    
