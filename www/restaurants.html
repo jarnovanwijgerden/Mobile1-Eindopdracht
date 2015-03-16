@@ -1,6 +1,4 @@
-
-
-     <div data-role="page" id="restaurants">
+   <div data-role="page" id="restaurants">
 
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
@@ -12,7 +10,8 @@
         <script type="text/javascript" src="js/api.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-
+        <script type="text/javascript" src="js/SQLitePlugin.js"></script>
+        <script type="text/javascript" src="js/database.js"></script>
 
 
         <div style="background: #f1f1f1;">
@@ -102,30 +101,40 @@
         </select>
   
     
-        <input class="checkbox" type="checkbox" /><label class="basicText label" > Sorteer op waardering </label>
+        <input id="waardering" class="checkbox" type="checkbox" /><label class="basicText label" > Sorteer op waardering </label>
        
         <button id="btngo" class="basicText" style="margin-left:10%; width:80%">Toon resultaten</button>
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
         <script type="text/javascript">
-            //$(document).ready(function()
-            //{
-
-                $("#goback").on("click",function()
+        getSettings(function(c, a, w)
+        {
+            if(c != "")
+            {
+                $("#category").val(c);
+                $("#distance").val(a);
+                $('#category').selectmenu('refresh');
+                $('#distance').selectmenu('refresh');
+                if(w == "true")
                 {
-  
-                    window.location = "index.html";
-                });
-               $("#btngo").on("click", function()
+                    $("#waardering").prop('checked', true);
+                }
+                else
                 {
-                    getQueryURL(function(url)
-                    {                     
-                        getRestaurantsByQuery(url, function(data)
-                        {   
-                            localStorage.setItem("data", data);
-                            window.location = "results.html";
-                        });
-                    });
+                    $("#waardering").prop('checked', false);
+                }
+            }
+        })
+      $("#btngo").on("click", function()
+        {
+            getQueryURL(function(url)
+            {                     
+                getRestaurantsByQuery(url, function(data)
+                {   
+                    localStorage.setItem("data", data);
+                    window.location = "results.html";
                 });
+            });
+        });
             //});
         </script>
     </div>

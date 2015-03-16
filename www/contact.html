@@ -20,6 +20,7 @@
         <script type="text/javascript" src="js/api.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/device.js"></script>
 
 
         <title>Contact</title>
@@ -44,15 +45,14 @@
 
         <p class="homeInfo">Contact</p>
         
-        <p class="homeDetails basicText">Telefoon: 0612345678<br><br>Email: Supergoeieapp@eet.nu<br><br>Land: Nederland<br><br>Website: <a id='website'>www.eet.nu</p>
+        <p class="homeDetails basicText">Telefoon: <a href="tel:' + 0612345678 + '"> 0612345678</a> <br><br>Email: Supergoeieapp@eet.nu<br><br>Land: Nederland<br><br>Website: <a id= "website" >www.eet.nu</a></p>
 
         <script type="text/javascript">
-
-               $("#website").on("click",function()
-               {
-                    appBrowser("www.eet.nu");
-               });
-            });</script>
+           $("#website").on("click",function()
+           {
+              appBrowser("https://www.eet.nu/");
+           });
+        </script>
 
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
 

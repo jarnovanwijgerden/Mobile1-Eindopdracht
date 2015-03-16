@@ -1,15 +1,8 @@
 
+
 var db;
 
-
-$(document).ready(function()
-{
-    // document.addEventListener("deviceready", function(){
-    //   initializeDatabase();
-    //   },true);
-
-    initializeDatabase();
-});
+initializeDatabase();
 
 
 function btnSaveClicked(){
@@ -36,33 +29,41 @@ function getSettings(callback) {
 
     var categorie = "";
     var afstand = "";
-    var waardering = "":
-    alert("1");
+    var waardering = "";
     db.transaction(function(trans)
     { 
-        alert("2");
         trans.executeSql('SELECT * FROM settings', [], function(trans, results)
         {
-            alert("3");
             var len = results.rows.length;
             if(len>0)
             {
-                alert("4");
                 categorie = results.rows.item(0).categorie;
                 afstand = results.rows.item(0).afstand;
                 waardering = results.rows.item(0).waardering;
+                callback(categorie, afstand, waardering);
             }
 
-        }, errorCB);
-    }, errorCB);
+        }, 
+        function(err)
+        {
+            callback(categorie, afstand, waardering);
+        });
+    }, 
+    function(err)
+    {
+         callback(categorie, afstand, waardering);
+    });
     callback(categorie, afstand, waardering);
 }
 
+
+ 
 function SaveSettings(categorie, afstand, waardering)
 {
     clearTable();
     db.transaction(function(trans){ 
         trans.executeSql('INSERT INTO settings (categorie, afstand, waardering) VALUES (?,?,?)', [ categorie, afstand, waardering ]);
+        alert("Settings opgeslagen");
     }, errorCB);
 
 }
@@ -73,5 +74,6 @@ function clearTable()
         trans.executeSql('DELETE FROM settings');
     }, errorCB);
 }
+
 
 
