@@ -41,9 +41,8 @@
             fillListview(data);
             disableButtons(data);
 
-
-            $('#restaurants li').on("click", function() 
-            { 
+            $(document.body).on('click', '#restaurants li' ,function(){
+                alert("klik");
                 var dataid = $(this).attr('data-id');
                 getRestaurantByID(dataid, function(data)
                 {
@@ -52,7 +51,7 @@
                 });
             });
 
-
+       
             $("#btnnext").on("click",function()
             {
 
