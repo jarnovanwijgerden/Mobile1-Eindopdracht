@@ -36,7 +36,7 @@
               <li><a href="#three" data-ajax="false">Contact</a></li>
             </ul>
           </div>
-          <div id="one" class="ui-body-d ui-content">
+          <div id="one" class="ui-btn-active">
                <p id="info" class="homeInfo"></p> 
                <p id="details" class="basicText"></p>
           </div>
@@ -109,6 +109,22 @@
                   var url = $(this).text();
                   appBrowser(url);
                });
+
+              $(document).swiperight(function() {
+                var active = $( "#tabs" ).tabs( "option", "active" );
+
+                if(active > 0)
+                {
+                   $("#tabs").tabs( "option", "active", active-1);
+                }
+              });
+              $(document).swipeleft(function() {
+                var active = $( "#tabs" ).tabs( "option", "active" );
+                if(active < 2)
+                {
+                   $("#tabs").tabs( "option", "active", active+1);
+                }
+              });
             });
 
         </script>

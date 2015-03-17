@@ -23,17 +23,25 @@
                 </ul>
             </nav>
         </header>
-        <p class="homeInfo">Zoekresultaten : </p>     
+
+
+        <button id="btnback" class="basicText" style="display:inline-block; margin-left:5%; width:40%">vorige</button><button id="btnnext" class="basicText" style="display:inline-block; margin-left:10%; width:40%">Volgende</button>
+        <p class="homeInfo" style="margin-top: 0px;">Zoekresultaten : </p>     
+
+
+        
         <input type="text" data-type="search" id="filterable-input">
         <ul id="restaurants" data-role="listview"  data-filter="true" data-input="#filterable-input">
         </ul>    
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
         <script type="text/javascript">
-            var data = JSON.parse(localStorage.getItem("data"));
-            for(var object in data.results)
-            {
-                $("#restaurants").append(' <li data-id="' + data.results[object].id + '"><a href="">' + data.results[object].name +  '</a></li>');
-            }
+        
+
+            var data =  JSON.parse(localStorage.getItem("data"));
+            fillListview(data);
+            disableButtons(data);
+
+
             $('#restaurants li').on("click", function() 
             { 
                 var dataid = $(this).attr('data-id');
@@ -43,6 +51,64 @@
                     window.location = "details.html";
                 });
             });
+
+
+            $("#btnnext").on("click",function()
+            {
+
+                var nexturl = data.pagination.next_page;
+                getRestaurantsByQuery(nexturl, function(newdata)
+                {   
+                    data =  JSON.parse(newdata);
+                    fillListview(data);
+                    disableButtons(data);
+                });
+
+            });
+            $("#btnback").on("click",function()
+            {
+                var backurl = data.pagination.previous_page;
+                getRestaurantsByQuery(backurl, function(newdata)
+                {   
+                    data =  JSON.parse(newdata);
+                    fillListview(data);
+                    disableButtons(data);
+                });
+            });
+
+
+            function disableButtons(newdata)
+            {
+                var nexturl = newdata.pagination.next_page;
+                var backurl = newdata.pagination.previous_page;
+
+                if(nexturl == null)
+                {
+                    $("#btnnext").prop("disabled",true);
+                }
+                else
+                {
+                    $("#btnnext").prop("disabled",false);
+                }
+                if(backurl == null)
+                {
+                    $("#btnback").prop("disabled",true);
+                }
+                else
+                {
+                    $("#btnback").prop("disabled",false);
+                }
+            }
+            function fillListview(newdata)
+            {
+                $("#restaurants").empty();
+                for(var object in newdata.results)
+                {
+                    $("#restaurants").append(' <li data-id="' + newdata.results[object].id + '"><a href="">' + newdata.results[object].name +  '</a></li>');
+                }
+                $('#restaurants:visible').listview('refresh');
+            }
+
         </script>
     </div>
    
