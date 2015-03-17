@@ -18,10 +18,8 @@
  */
 
 $(document).ready(function() {
-    $('.li').click(function() {
-        var url = $(this).attr('data-url');
-        $.mobile.changePage("settings.html", { transition: "slideup", changeHash: false });
-    });
+
+
 });
 
 
