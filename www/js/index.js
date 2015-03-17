@@ -20,7 +20,7 @@
 $(document).ready(function() {
     $('.li').click(function() {
         var url = $(this).attr('data-url');
-        window.location = url;
+        $.mobile.changePage("settings.html", { transition: "slideup", changeHash: false });
     });
 });
 
