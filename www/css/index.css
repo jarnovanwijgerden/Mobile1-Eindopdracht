@@ -75,6 +75,10 @@
 .nav-container:hover .nav {
     height: auto;
 }
+.tabselected
+{
+    background-color:#A9F5F2 !important;
+}
 
 .nav li {
     list-style-type: none;

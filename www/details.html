@@ -31,12 +31,12 @@
         <div data-role="tabs" id="tabs">
           <div data-role="navbar">
             <ul>
-              <li><a href="#one" data-ajax="false">Home</a></li>
-              <li><a href="#two" data-ajax="false">Reviews</a></li>
-              <li><a href="#three" data-ajax="false">Contact</a></li>
+              <li><a href="#one" id="headerone" class="ui-btn-active" data-ajax="false">Home</a></li>
+              <li><a href="#two" id= "headertwo" data-ajax="false">Reviews</a></li>
+              <li><a href="#three" id="headerthree" data-ajax="false">Contact</a></li>
             </ul>
           </div>
-          <div id="one" class="ui-btn-active">
+          <div id="one" data-id=>
                <p id="info" class="homeInfo"></p> 
                <p id="details" class="basicText"></p>
           </div>
@@ -115,14 +115,23 @@
 
                 if(active > 0)
                 {
-                   $("#tabs").tabs( "option", "active", active-1);
+                  var element = $("#tabs").find( ".ui-tabs-panel" )[active];
+                  $("#header" +element.id).removeClass("ui-btn-active");
+                  $("#tabs").tabs( "option", "active", active-1);
+                  var element=   $("#tabs").find( ".ui-tabs-panel" )[active-1];
+                  $("#header" + element.id).addClass("ui-btn-active");
+
                 }
               });
               $(document).swipeleft(function() {
                 var active = $( "#tabs" ).tabs( "option", "active" );
                 if(active < 2)
                 {
-                   $("#tabs").tabs( "option", "active", active+1);
+                  var element = $("#tabs").find( ".ui-tabs-panel" )[active];
+                  $("#header" +element.id).removeClass("ui-btn-active");
+                  $("#tabs").tabs( "option", "active", active+1);
+                  var element=   $("#tabs").find( ".ui-tabs-panel" )[active+1];
+                  $("#header" + element.id).addClass("ui-btn-active");
                 }
               });
             });
