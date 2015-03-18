@@ -27,83 +27,86 @@
 
         
         <input type="text" data-type="search" id="filterable-input">
-        <ul id="restaurants" data-role="listview"  data-filter="true" data-input="#filterable-input">
+        <ul id="rest" data-role="listview"  data-filter="true" data-input="#filterable-input">
         </ul>    
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
          <script type="text/javascript">
         
 
-        //     var data =  JSON.parse(localStorage.getItem("data"));
-        //     fillListview(data);
-        //     disableButtons(data);
-
-        //     $(document.body).on('click', '#restaurants li' ,function(){
-        //         var dataid = $(this).attr('data-id');
-        //         getRestaurantByID(dataid, function(data)
-        //         {
-        //             localStorage.setItem("restaurant", data);
-        //             window.location = "details.html";
-        //         });
-        //     });
-
-       
-        //     $("#btnnext").on("click",function()
-        //     {
-
-        //         var nexturl = data.pagination.next_page;
-        //         getRestaurantsByQuery(nexturl, function(newdata)
-        //         {   
-        //             data =  JSON.parse(newdata);
-        //             fillListview(data);
-        //             disableButtons(data);
-        //         });
-
-        //     });
-        //     $("#btnback").on("click",function()
-        //     {
-        //         var backurl = data.pagination.previous_page;
-        //         getRestaurantsByQuery(backurl, function(newdata)
-        //         {   
-        //             data =  JSON.parse(newdata);
-        //             fillListview(data);
-        //             disableButtons(data);
-        //         });
-        //     });
 
 
-        //     function disableButtons(newdata)
-        //     {
-        //         var nexturl = newdata.pagination.next_page;
-        //         var backurl = newdata.pagination.previous_page;
+        $(document).off('pageinit');
+        $(document).on('pageinit', '#results', function(){  
+            var data =  JSON.parse(localStorage.getItem("data"));
 
-        //         if(nexturl == null)
-        //         {
-        //             $("#btnnext").prop("disabled",true);
-        //         }
-        //         else
-        //         {
-        //             $("#btnnext").prop("disabled",false);
-        //         }
-        //         if(backurl == null)
-        //         {
-        //             $("#btnback").prop("disabled",true);
-        //         }
-        //         else
-        //         {
-        //             $("#btnback").prop("disabled",false);
-        //         }
-        //     }
-        //     function fillListview(newdata)
-        //     {
-        //         $("#restaurants").empty();
-        //         for(var object in newdata.results)
-        //         {
-        //             $("#restaurants").append(' <li data-id="' + newdata.results[object].id + '"><a href="">' + newdata.results[object].name +  '</a></li>');
-        //         }
-        //         $('#restaurants:visible').listview('refresh');
-        //     }
+            fillListview(data);
+            disableButtons(data);
 
-        // </script>
+            $(document.body).on('click', '#rest li' ,function(){
+                var dataid = $(this).attr('data-id');
+                getRestaurantByID(dataid, function(data)
+                {
+                    localStorage.setItem("restaurant", data);
+                    window.location = "details.html";
+                });
+            });
+            $("#btnnext").on("click",function()
+            {
+
+                var nexturl = data.pagination.next_page;
+                getRestaurantsByQuery(nexturl, function(newdata)
+                {   
+                    data =  JSON.parse(newdata);
+                    fillListview(data);
+                    disableButtons(data);
+                });
+
+            });
+            $("#btnback").on("click",function()
+            {
+                var backurl = data.pagination.previous_page;
+                getRestaurantsByQuery(backurl, function(newdata)
+                {   
+                    data =  JSON.parse(newdata);
+                    fillListview(data);
+                    disableButtons(data);
+                });
+            });
+
+            function disableButtons(newdata)
+            {
+                var nexturl = newdata.pagination.next_page;
+                var backurl = newdata.pagination.previous_page;
+
+                if(nexturl == null)
+                {
+                    $("#btnnext").prop("disabled",true);
+                }
+                else
+                {
+                    $("#btnnext").prop("disabled",false);
+                }
+                if(backurl == null)
+                {
+                    $("#btnback").prop("disabled",true);
+                }
+                else
+                {
+                    $("#btnback").prop("disabled",false);
+                }
+            }
+            function fillListview(newdata)
+            {
+                $("#rest").empty();
+                for(var object in newdata.results)
+                {
+                    $("#rest").append(' <li data-id="' + newdata.results[object].id + '"><a href="">' + newdata.results[object].name +  '</a></li>');
+                }
+                $('#rest').listview('refresh');
+            }
+        });
+     
+        </script>
 
 </div>
 </div>

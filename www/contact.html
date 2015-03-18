@@ -22,10 +22,16 @@
         <p class="homeDetails basicText">Telefoon: <a href="tel:' + 0612345678 + '"> 0612345678</a> <br><br>Email: Supergoeieapp@eet.nu<br><br>Land: Nederland<br><br>Website: <a id= "website" >www.eet.nu</a></p>
 
         <script type="text/javascript">
-           // $("#website").on("click",function()
-           // {
-           //    appBrowser("https://www.eet.nu/");
-           // });
+
+
+        $(document).off('pageinit');
+        $(document).on('pageinit', '#contact', function(){    
+           $("#website").on("click",function()
+           {
+              appBrowser("https://www.eet.nu/");
+           });
+        });
+          
         </script>
 
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>

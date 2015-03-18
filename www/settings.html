@@ -1,6 +1,6 @@
     <div data-role="page" id="settings">
        <div data-role="main">
-        
+
         <div style="background: #f1f1f1;">
             <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
         </div>
@@ -91,6 +91,35 @@
         <button id="btnsave" class="basicText" style="margin-left:10%; width:80%">Opslaan</button>
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
         <script type="text/javascript">
+
+
+
+        $(document).off('pagebeforeshow');
+        $(document).on('pagebeforeshow', '#settings', function(){     
+
+            getSettings(function(c, a, w)
+            {
+                if(c != "")
+                {
+                    $("#category").val(c);
+                    $("#distance").val(a);
+                    $('#category').selectmenu('refresh');
+                    $('#distance').selectmenu('refresh');
+                    if(w == "true")
+                    {
+                        $("#waardering").prop('checked', true);
+                    }
+                    else
+                    {
+                        $("#waardering").prop('checked', false);
+                    }
+                }
+            });
+            $('#btnsave').on("click", function() 
+            { 
+                btnSaveClicked();
+            });
+        });
         /*$(document).ready(function()
         {
             alert("ready");

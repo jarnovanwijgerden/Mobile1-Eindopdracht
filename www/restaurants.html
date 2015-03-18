@@ -1,4 +1,4 @@
-    <div data-role="page" id="restaurants">
+    <div data-role="page" id="restaurants" data-ajax="false">
        <div data-role="main">
        
         <div style="background: #f1f1f1;">
@@ -93,40 +93,44 @@
         <button id="btngo" class="basicText" style="margin-left:10%; width:80%">Toon resultaten</button>
         <script type="text/javascript">
 
-        // $(document).ready(function()
-        // {
-        //     getSettings(function(c, a, w)
-        //     {
-        //         if(c != "")
-        //         {
-        //             $("#category").val(c);
-        //             $("#distance").val(a);
-        //             $('#category').selectmenu('refresh');
-        //             $('#distance').selectmenu('refresh');
-        //             if(w == "true")
-        //             {
-        //                 $("#waardering").prop('checked', true);
-        //             }
-        //             else
-        //             {
-        //                 $("#waardering").prop('checked', false);
-        //             }
-        //         }
-        //     })
-        //   $("#btngo").on("click", function()
-        //     {
-        //         getQueryURL(function(url)
-        //         {                     
-        //             getRestaurantsByQuery(url, function(data)
-        //             {   
-        //                 localStorage.setItem("data", data);
-        //                 window.location = "results.html";
-        //             });
-        //         });
-        //     });
-        // });
-    
-            //});
+     
+        $(document).off('pagebeforeshow');
+        $(document).on('pagebeforeshow', '#restaurants', function(){      
+
+            $("#btngo").on("click", function()
+            {
+                getQueryURL(function(url)
+                {                     
+                     getRestaurantsByQuery(url, function(data)
+                     {   
+                         localStorage.setItem("data", data);
+                         $.mobile.changePage( "results.html", { transition: "slide", changeHash: false });
+                     });
+                 });
+            });
+
+
+            getSettings(function(c, a, w)
+            {
+                if(c != "")
+                {
+                    //alert("veranderingen");
+                    $("#category").val(c);
+                    $("#distance").val(a);
+                    $('#category').selectmenu('refresh');
+                    $('#distance').selectmenu('refresh');
+                    if(w == "true")
+                    {
+                        $("#waardering").prop('checked', true);
+                    }
+                    else
+                    {
+                        $("#waardering").prop('checked', false);
+                    }
+                }
+            });
+
+        }); 
         </script>
 
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
