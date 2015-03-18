@@ -1,17 +1,13 @@
 
-        <div data-role="page" id="results">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <script type="text/javascript" src="js/device.js"></script>
-        <script type="text/javascript" src="js/api.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        
+    <div data-role="page" id="results">
+       <div data-role="main">
+
+
         <div style="background: #f1f1f1;">
             <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
         </div>
+        <title>Resultaten</title>
         <header class="header">
             <nav class="nav-container">
                 <div class="nav-toggle">Menu</div>
@@ -34,80 +30,86 @@
         <ul id="restaurants" data-role="listview"  data-filter="true" data-input="#filterable-input">
         </ul>    
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
-        <script type="text/javascript">
+         <script type="text/javascript">
         
 
-            var data =  JSON.parse(localStorage.getItem("data"));
-            fillListview(data);
-            disableButtons(data);
+        //     var data =  JSON.parse(localStorage.getItem("data"));
+        //     fillListview(data);
+        //     disableButtons(data);
 
-            $(document.body).on('click', '#restaurants li' ,function(){
-                var dataid = $(this).attr('data-id');
-                getRestaurantByID(dataid, function(data)
-                {
-                    localStorage.setItem("restaurant", data);
-                    window.location = "details.html";
-                });
-            });
+        //     $(document.body).on('click', '#restaurants li' ,function(){
+        //         var dataid = $(this).attr('data-id');
+        //         getRestaurantByID(dataid, function(data)
+        //         {
+        //             localStorage.setItem("restaurant", data);
+        //             window.location = "details.html";
+        //         });
+        //     });
 
        
-            $("#btnnext").on("click",function()
-            {
+        //     $("#btnnext").on("click",function()
+        //     {
 
-                var nexturl = data.pagination.next_page;
-                getRestaurantsByQuery(nexturl, function(newdata)
-                {   
-                    data =  JSON.parse(newdata);
-                    fillListview(data);
-                    disableButtons(data);
-                });
+        //         var nexturl = data.pagination.next_page;
+        //         getRestaurantsByQuery(nexturl, function(newdata)
+        //         {   
+        //             data =  JSON.parse(newdata);
+        //             fillListview(data);
+        //             disableButtons(data);
+        //         });
 
-            });
-            $("#btnback").on("click",function()
-            {
-                var backurl = data.pagination.previous_page;
-                getRestaurantsByQuery(backurl, function(newdata)
-                {   
-                    data =  JSON.parse(newdata);
-                    fillListview(data);
-                    disableButtons(data);
-                });
-            });
+        //     });
+        //     $("#btnback").on("click",function()
+        //     {
+        //         var backurl = data.pagination.previous_page;
+        //         getRestaurantsByQuery(backurl, function(newdata)
+        //         {   
+        //             data =  JSON.parse(newdata);
+        //             fillListview(data);
+        //             disableButtons(data);
+        //         });
+        //     });
 
 
-            function disableButtons(newdata)
-            {
-                var nexturl = newdata.pagination.next_page;
-                var backurl = newdata.pagination.previous_page;
+        //     function disableButtons(newdata)
+        //     {
+        //         var nexturl = newdata.pagination.next_page;
+        //         var backurl = newdata.pagination.previous_page;
 
-                if(nexturl == null)
-                {
-                    $("#btnnext").prop("disabled",true);
-                }
-                else
-                {
-                    $("#btnnext").prop("disabled",false);
-                }
-                if(backurl == null)
-                {
-                    $("#btnback").prop("disabled",true);
-                }
-                else
-                {
-                    $("#btnback").prop("disabled",false);
-                }
-            }
-            function fillListview(newdata)
-            {
-                $("#restaurants").empty();
-                for(var object in newdata.results)
-                {
-                    $("#restaurants").append(' <li data-id="' + newdata.results[object].id + '"><a href="">' + newdata.results[object].name +  '</a></li>');
-                }
-                $('#restaurants:visible').listview('refresh');
-            }
+        //         if(nexturl == null)
+        //         {
+        //             $("#btnnext").prop("disabled",true);
+        //         }
+        //         else
+        //         {
+        //             $("#btnnext").prop("disabled",false);
+        //         }
+        //         if(backurl == null)
+        //         {
+        //             $("#btnback").prop("disabled",true);
+        //         }
+        //         else
+        //         {
+        //             $("#btnback").prop("disabled",false);
+        //         }
+        //     }
+        //     function fillListview(newdata)
+        //     {
+        //         $("#restaurants").empty();
+        //         for(var object in newdata.results)
+        //         {
+        //             $("#restaurants").append(' <li data-id="' + newdata.results[object].id + '"><a href="">' + newdata.results[object].name +  '</a></li>');
+        //         }
+        //         $('#restaurants:visible').listview('refresh');
+        //     }
 
-        </script>
-    </div>
-   
+        // </script>
+
+</div>
+</div>
+
+
+
+
+
 

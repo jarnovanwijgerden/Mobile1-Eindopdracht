@@ -1,23 +1,10 @@
-   <div data-role="page" id="restaurants">
-
-
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <script type="text/javascript" src="js/device.js"></script>
-        <script type="text/javascript" src="js/api.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/SQLitePlugin.js"></script>
-        <script type="text/javascript" src="js/database.js"></script>
-
-
+    <div data-role="page" id="restaurants">
+       <div data-role="main">
+       
         <div style="background: #f1f1f1;">
             <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
         </div>
-
+       
         <header class="header">
             <nav class="nav-container">
                 <div class="nav-toggle">Menu</div>
@@ -104,37 +91,44 @@
         <input id="waardering" class="checkbox" type="checkbox" /><label class="basicText label" > Sorteer op waardering </label>
        
         <button id="btngo" class="basicText" style="margin-left:10%; width:80%">Toon resultaten</button>
-        <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
         <script type="text/javascript">
-        getSettings(function(c, a, w)
-        {
-            if(c != "")
-            {
-                $("#category").val(c);
-                $("#distance").val(a);
-                $('#category').selectmenu('refresh');
-                $('#distance').selectmenu('refresh');
-                if(w == "true")
-                {
-                    $("#waardering").prop('checked', true);
-                }
-                else
-                {
-                    $("#waardering").prop('checked', false);
-                }
-            }
-        })
-      $("#btngo").on("click", function()
-        {
-            getQueryURL(function(url)
-            {                     
-                getRestaurantsByQuery(url, function(data)
-                {   
-                    localStorage.setItem("data", data);
-                    window.location = "results.html";
-                });
-            });
-        });
+
+        // $(document).ready(function()
+        // {
+        //     getSettings(function(c, a, w)
+        //     {
+        //         if(c != "")
+        //         {
+        //             $("#category").val(c);
+        //             $("#distance").val(a);
+        //             $('#category').selectmenu('refresh');
+        //             $('#distance').selectmenu('refresh');
+        //             if(w == "true")
+        //             {
+        //                 $("#waardering").prop('checked', true);
+        //             }
+        //             else
+        //             {
+        //                 $("#waardering").prop('checked', false);
+        //             }
+        //         }
+        //     })
+        //   $("#btngo").on("click", function()
+        //     {
+        //         getQueryURL(function(url)
+        //         {                     
+        //             getRestaurantsByQuery(url, function(data)
+        //             {   
+        //                 localStorage.setItem("data", data);
+        //                 window.location = "results.html";
+        //             });
+        //         });
+        //     });
+        // });
+    
             //});
         </script>
+
+        <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
     </div>
+</div>

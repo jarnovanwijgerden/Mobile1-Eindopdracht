@@ -1,22 +1,13 @@
 
     
-
-
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <script type="text/javascript" src="js/device.js"></script>
-        <script type="text/javascript" src="js/api.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-
+      <div data-role="page" id="details">
+       <div data-role="main">
 
 
         <div style="background: #f1f1f1;">
             <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
         </div> 
+        <title>Details</title>
        <header class="header">
             <nav class="nav-container">
                 <div class="nav-toggle">Menu</div>
@@ -60,90 +51,88 @@
 
         </div>
          <script type="text/javascript">
-            $(document).ready(function()
-            {
-               //home
-               var data =  JSON.parse(localStorage.getItem("restaurant"));
-               $("#info").html("Restaurant " + data.name);
+            // $(document).ready(function()
+            // {
+            //    //home
+            //    var data =  JSON.parse(localStorage.getItem("restaurant"));
+            //    $("#info").html("Restaurant " + data.name);
 
-               var description = data.description;
-               if(description == null)
-               {
-                    description = "Dit restaurant heeft geen beschrijving";
-               }
-               $("#details").html(description);
+            //    var description = data.description;
+            //    if(description == null)
+            //    {
+            //         description = "Dit restaurant heeft geen beschrijving";
+            //    }
+            //    $("#details").html(description);
 
 
-               //reviews
-               getReviewsByID(data.id, function(response)
-               {
-                    var reviews = JSON.parse(response);
-                    $("#count").html(reviews.results.length);
-                    for(var object in reviews.results)
-                    {
-                        var review = reviews.results[object];
-                        var text = '<li ><h2>' + review.author.name + '</h2><p>' + review.body + '</p><div class="ui-li-aside"><strong>' + review.rating + '/100</strong> Waardering</div></li>';
-                        $("#reviews").append(text);
-                    }
-                    $("#reviews").listview("refresh");
-               });
+            //    //reviews
+            //    getReviewsByID(data.id, function(response)
+            //    {
+            //         var reviews = JSON.parse(response);
+            //         $("#count").html(reviews.results.length);
+            //         for(var object in reviews.results)
+            //         {
+            //             var review = reviews.results[object];
+            //             var text = '<li ><h2>' + review.author.name + '</h2><p>' + review.body + '</p><div class="ui-li-aside"><strong>' + review.rating + '/100</strong> Waardering</div></li>';
+            //             $("#reviews").append(text);
+            //         }
+            //         $("#reviews").listview("refresh");
+            //    });
 
-               $('#reviews li').click(function(e) 
-              { 
-                var innertext = $(this).find( "p" ).text();
-                alert(innertext);
-              });
+            //    $('#reviews li').click(function(e) 
+            //   { 
+            //     var innertext = $(this).find( "p" ).text();
+            //     alert(innertext);
+            //   });
 
-               //contact
-               $("#street").append(data.address.street);
-               $("#city").append(data.address.city);
-               $("#regio").append(data.address.region);
-               $("#post").append(data.address.zipcode);
-               $("#country").append(data.address.country);
-               $("#tel").append('<a href="tel:' + data.telephone + '">'+ data.telephone + '</a>');
-               $("#url").append("<a id='website'>"+data.website_url+"</a>");
+            //    //contact
+            //    $("#street").append(data.address.street);
+            //    $("#city").append(data.address.city);
+            //    $("#regio").append(data.address.region);
+            //    $("#post").append(data.address.zipcode);
+            //    $("#country").append(data.address.country);
+            //    $("#tel").append('<a href="tel:' + data.telephone + '">'+ data.telephone + '</a>');
+            //    $("#url").append("<a id='website'>"+data.website_url+"</a>");
 
-               $("#website").on("click",function()
-               {
+            //    $("#website").on("click",function()
+            //    {
 
-                  var url = $(this).text();
-                  appBrowser(url);
-               });
+            //       var url = $(this).text();
+            //       appBrowser(url);
+            //    });
 
-              $(document).swiperight(function() {
-                var active = $( "#tabs" ).tabs( "option", "active" );
+            //   $(document).swiperight(function() {
+            //     var active = $( "#tabs" ).tabs( "option", "active" );
 
-                if(active > 0)
-                {
-                  var element = $("#tabs").find( ".ui-tabs-panel" )[active];
-                  $("#header" +element.id).removeClass("ui-btn-active");
-                  $("#tabs").tabs( "option", "active", active-1);
-                  var element=   $("#tabs").find( ".ui-tabs-panel" )[active-1];
-                  $("#header" + element.id).addClass("ui-btn-active");
+            //     if(active > 0)
+            //     {
+            //       var element = $("#tabs").find( ".ui-tabs-panel" )[active];
+            //       $("#header" +element.id).removeClass("ui-btn-active");
+            //       $("#tabs").tabs( "option", "active", active-1);
+            //       var element=   $("#tabs").find( ".ui-tabs-panel" )[active-1];
+            //       $("#header" + element.id).addClass("ui-btn-active");
 
-                }
-              });
-              $(document).swipeleft(function() {
-                var active = $( "#tabs" ).tabs( "option", "active" );
-                if(active < 2)
-                {
-                  var element = $("#tabs").find( ".ui-tabs-panel" )[active];
-                  $("#header" +element.id).removeClass("ui-btn-active");
-                  $("#tabs").tabs( "option", "active", active+1);
-                  var element=   $("#tabs").find( ".ui-tabs-panel" )[active+1];
-                  $("#header" + element.id).addClass("ui-btn-active");
-                }
-              });
-            });
+            //     }
+            //   });
+            //   $(document).swipeleft(function() {
+            //     var active = $( "#tabs" ).tabs( "option", "active" );
+            //     if(active < 2)
+            //     {
+            //       var element = $("#tabs").find( ".ui-tabs-panel" )[active];
+            //       $("#header" +element.id).removeClass("ui-btn-active");
+            //       $("#tabs").tabs( "option", "active", active+1);
+            //       var element=   $("#tabs").find( ".ui-tabs-panel" )[active+1];
+            //       $("#header" + element.id).addClass("ui-btn-active");
+            //     }
+            //   });
+            // });
 
         </script>
         
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
 
-
-<!--     </body>
-</html>
- -->
+      </div>
+    </div>
 
 
 
