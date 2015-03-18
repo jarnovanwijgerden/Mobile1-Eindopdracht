@@ -88,7 +88,8 @@
         </select>
         <input id="waardering" class="checkbox" type="checkbox" /><label class="basicText label" > Sorteer op waardering </label>
        
-        <button id="btnsave" class="basicText" style="margin-left:10%; width:80%">Opslaan</button>
+        <button id="btnsave" class="basicText" data-inline="true" style="margin-left:5%; width:40%">Opslaan</button>
+        <button id="btnleeg" class="basicText" data-inline="true" style="margin-left:5%; width:40%">Reset</button>
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
         <script type="text/javascript">
 
@@ -115,10 +116,19 @@
                     }
                 }
             });
-            $('#btnsave').on("click", function() 
+            $('#btnsave').on("tap", function() 
             { 
                 btnSaveClicked();
             });
+
+            $('#btnleeg').on("click", function() 
+    { 
+        $("#category").val("none");
+        $("#distance").val("none");
+        $('#category').selectmenu('refresh');
+        $('#distance').selectmenu('refresh');
+        $("#waardering").prop('checked', false);
+    });
         });
         /*$(document).ready(function()
         {

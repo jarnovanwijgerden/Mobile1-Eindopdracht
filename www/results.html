@@ -50,7 +50,7 @@
                     window.location = "details.html";
                 });
             });
-            $("#btnnext").on("click",function()
+            $("#btnnext").on("tap",function()
             {
 
                 var nexturl = data.pagination.next_page;
@@ -62,7 +62,7 @@
                 });
 
             });
-            $("#btnback").on("click",function()
+            $("#btnback").on("tap",function()
             {
                 var backurl = data.pagination.previous_page;
                 getRestaurantsByQuery(backurl, function(newdata)

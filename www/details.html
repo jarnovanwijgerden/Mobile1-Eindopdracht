@@ -54,7 +54,9 @@
           </div>
           <div id="one" class="ui-body-d ui-content">
             <p id="info" class="homeInfo"></p> 
-           <p id="details" class="basicText"></p>
+            <p id="details" class="basicText"></p>
+            <p id="rating" class="basicText"></p>
+            <p id="stars" class="basicText"></p>
           </div>
           <div id="two">
             <ul id="reviews" data-role="listview" data-inset="true">
@@ -89,6 +91,20 @@
                if(description == null)
                {
                     description = "Dit restaurant heeft geen beschrijving";
+               }
+
+                if(rating != null)
+               {
+                                    
+                    $("#rating").html("Dit restaurant heeft de volgende waardering: " + data.rating);
+
+                    var j = 0;
+                    for(i=0; i < rating; i = i + 10)
+                    {
+
+                       $("#stars").html("<img src ='img/Star-Full.png' style='margin-left:" + j +"%; width:3%;'>");
+                       j = j + 2.5;
+                    }
                }
                $("#details").html(description);
 

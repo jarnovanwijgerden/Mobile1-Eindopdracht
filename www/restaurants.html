@@ -97,8 +97,9 @@
         $(document).off('pagebeforeshow');
         $(document).on('pagebeforeshow', '#restaurants', function(){      
 
-            $("#btngo").on("click", function()
+            $("#btngo").on("tap", function()
             {
+                $.mobile.loading('show');
                 getQueryURL(function(url)
                 {                     
                      getRestaurantsByQuery(url, function(data)
