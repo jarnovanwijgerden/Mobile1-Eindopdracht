@@ -17,12 +17,10 @@
  * under the License.
  */
 
-$(document).ready(function() {
-    $('.li').click(function() {
-        var url = $(this).attr('data-url');
-        window.location = url;
-    });
-});
+
+
+
+
 
 
 var app = {
