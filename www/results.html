@@ -42,7 +42,6 @@
             disableButtons(data);
 
             $(document.body).on('click', '#restaurants li' ,function(){
-                alert("klik");
                 var dataid = $(this).attr('data-id');
                 getRestaurantByID(dataid, function(data)
                 {
