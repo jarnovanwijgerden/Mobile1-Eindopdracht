@@ -26,18 +26,16 @@ function getQueryURL(callback)
     {
         getGeolocation(function(position)
         {
-            if(position != n_afstandull)
+            if(position != null)
             {
                 url += "max_distance="+ $(_afstand).val();
                 url += "&geolocation=" + position.coords.latitude + "," + position.coords.longitude;
-                alert("Geo loc " + url);
                 callback(url);
             }
         });
     }
     else
     {
-        alert("Callback " + url);
         callback(url);
     }
 }
