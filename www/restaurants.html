@@ -5,6 +5,8 @@
             <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
         </div>
        
+      <button id="btnback" style="margin-left:5%; width:20%">Back</button>
+
         <header class="header">
             <nav class="nav-container">
                 <div class="nav-toggle">Menu</div>
@@ -108,6 +110,11 @@
                          $.mobile.changePage( "results.html", { transition: "slide", changeHash: false });
                      });
                  });
+            });
+
+            $('#btnback').on("tap", function() 
+            {
+                window.history.back();
             });
 
 

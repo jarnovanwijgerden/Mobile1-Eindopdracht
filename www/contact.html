@@ -4,6 +4,8 @@
         <div style="background: #f1f1f1;">
             <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
         </div>
+
+        <button id="btnback" style="margin-left:5%; width:20%">Back</button>
        
         <header class="header">
             <nav class="nav-container">
@@ -22,7 +24,11 @@
         <p class="homeDetails basicText">Telefoon: <a href="tel:' + 0612345678 + '"> 0612345678</a> <br><br>Email: Supergoeieapp@eet.nu<br><br>Land: Nederland<br><br>Website: <a id= "website" >www.eet.nu</a></p>
 
         <script type="text/javascript">
-
+        
+        $('#btnback').on("tap", function() 
+        { 
+            window.history.back();
+        });
 
         $(document).off('pageinit');
         $(document).on('pageinit', '#contact', function(){    

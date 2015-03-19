@@ -7,6 +7,9 @@
         <div style="background: #f1f1f1;">
             <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
         </div>
+
+        <button id="btnback" style="margin-left:5%; width:20%">Back</button>
+        
         <title>Resultaten</title>
         <header class="header">
             <nav class="nav-container">
@@ -33,7 +36,10 @@
          <script type="text/javascript">
         
 
-
+            $('#btnback').on("tap", function() 
+            { 
+                window.history.back(-1);
+            });
 
         $(document).off('pageinit');
         $(document).on('pageinit', '#results', function(){  

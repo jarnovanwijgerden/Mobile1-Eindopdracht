@@ -2,8 +2,9 @@
        <div data-role="main">
 
         <div style="background: #f1f1f1;">
-            <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
+            <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">  
         </div>
+        <button id="btnback" style="margin-left:5%; width:20%">Back</button>
        
         <header class="header">
             <nav class="nav-container">
@@ -12,7 +13,7 @@
                     <li> <a href ="index.html" data-transition="slide"> Home </a></li>
                     <li> <a href ="restaurants.html" data-transition="slide"> Restaurants </a></li>
                     <li> <a href ="contact.html" data-transition="slide"> Contact </a></li>
-                    <li> <a href ="settings.html" data-transition="slide"> Settings </a></li>  
+                    <li> <a href ="settings.html" data-transition="slide"> Settings </a></li>
                 </ul>
             </nav>
         </header>
@@ -105,7 +106,7 @@
                 btnSaveClicked();
             });
 
-            $('#btnleeg').on("click", function() 
+            $('#btnleeg').on("tap", function() 
             { 
                 $("#category").val("none");
                 $("#distance").val("none");
@@ -113,6 +114,13 @@
                 $('#distance').selectmenu('refresh');
                 $("#waardering").prop('checked', false);
             });
+
+            $('#btnback').on("tap", function() 
+            { 
+                window.history.back(-1);
+            });
+
+
             getSettings(handleSucces, handleError);
             function handleSucces(c, a, w)
             {
