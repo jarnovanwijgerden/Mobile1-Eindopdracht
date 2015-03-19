@@ -25,7 +25,7 @@ function errorCB(err) {
     return true;
 }
 
-function getSettings(callback) {
+function getSettings(succes, error) {
 
     var categorie = "";
     var afstand = "";
@@ -40,20 +40,18 @@ function getSettings(callback) {
                 categorie = results.rows.item(0).categorie;
                 afstand = results.rows.item(0).afstand;
                 waardering = results.rows.item(0).waardering;
-                callback(categorie, afstand, waardering);
+                succes(categorie, afstand, waardering);
             }
-
         }, 
         function(err)
         {
-            callback(categorie, afstand, waardering);
+            error(err);
         });
     }, 
     function(err)
     {
-         callback(categorie, afstand, waardering);
+         error(err);
     });
-    callback(categorie, afstand, waardering);
 }
 
 

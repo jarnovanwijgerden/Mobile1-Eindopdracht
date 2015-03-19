@@ -3,37 +3,41 @@
 var lat;
 var lng;
 var url;
-var _checkbox = "#chkrating";
-var _afstand = "#distance";
-var _categorie = "#category";
 
 
 
 function getQueryURL(callback)
 {
+    var _checkbox = $("#chkrating");
+    var _afstand = $("#distance");
+    var _categorie = $("#category");
+
     url = "https://api.eet.nu/venues?";
-    if($(_categorie).val() != "none")
+    if(_categorie.val() != "none")
     {
         url += "tags="+ _categorie.val() + "&";
     }
-    if($(_checkbox).is(':checked'))
+
+    if(_checkbox.is(':checked'))
     {
         url += "sort_by=rating&";
     }
-    if($(_afstand).val() != "none")
+    if(_afstand.val() != "none")
     {
         getGeolocation(function(position)
         {
-            if(position != null)
+            if(position != n_afstandull)
             {
                 url += "max_distance="+ $(_afstand).val();
                 url += "&geolocation=" + position.coords.latitude + "," + position.coords.longitude;
+                alert("Geo loc " + url);
                 callback(url);
             }
         });
     }
     else
     {
+        alert("Callback " + url);
         callback(url);
     }
 }

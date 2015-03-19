@@ -101,7 +101,7 @@
             {
                 $.mobile.loading('show');
                 getQueryURL(function(url)
-                {                     
+                {              
                      getRestaurantsByQuery(url, function(data)
                      {   
                          localStorage.setItem("data", data);
@@ -111,11 +111,10 @@
             });
 
 
-            getSettings(function(c, a, w)
+            getSettings(handleSucces, handleError);
+            function handleSucces(c, a, w)
             {
-                if(c != "")
-                {
-                    //alert("veranderingen");
+                    alert(w + c + a) ;
                     $("#category").val(c);
                     $("#distance").val(a);
                     $('#category').selectmenu('refresh');
@@ -128,8 +127,11 @@
                     {
                         $("#waardering").prop('checked', false);
                     }
-                }
-            });
+            }
+            function handleError(err)
+            {
+                alert("error : " + err);
+            }
 
         }); 
         </script>

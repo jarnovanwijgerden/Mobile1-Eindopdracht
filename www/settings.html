@@ -98,10 +98,25 @@
         $(document).off('pagebeforeshow');
         $(document).on('pagebeforeshow', '#settings', function(){     
 
-            getSettings(function(c, a, w)
+            
+        
+            $('#btnsave').on("tap", function() 
+            { 
+                btnSaveClicked();
+            });
+
+            $('#btnleeg').on("click", function() 
+            { 
+                $("#category").val("none");
+                $("#distance").val("none");
+                $('#category').selectmenu('refresh');
+                $('#distance').selectmenu('refresh');
+                $("#waardering").prop('checked', false);
+            });
+            getSettings(handleSucces, handleError);
+            function handleSucces(c, a, w)
             {
-                if(c != "")
-                {
+                   alert(w + c + a) ;
                     $("#category").val(c);
                     $("#distance").val(a);
                     $('#category').selectmenu('refresh');
@@ -114,21 +129,12 @@
                     {
                         $("#waardering").prop('checked', false);
                     }
-                }
-            });
-            $('#btnsave').on("tap", function() 
-            { 
-                btnSaveClicked();
-            });
+            }
+            function handleError(err)
+            {
+                alert("error : " + err);
+            }
 
-            $('#btnleeg').on("click", function() 
-    { 
-        $("#category").val("none");
-        $("#distance").val("none");
-        $('#category').selectmenu('refresh');
-        $('#distance').selectmenu('refresh');
-        $("#waardering").prop('checked', false);
-    });
         });
         /*$(document).ready(function()
         {
