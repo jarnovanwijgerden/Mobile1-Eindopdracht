@@ -113,10 +113,17 @@
                 $('#distance').selectmenu('refresh');
                 $("#waardering").prop('checked', false);
             });
-            getSettings(handleSucces, handleError);
+
+
+            setTimeout(function() {
+                getSettings(handleSucces, handleError);
+            }, 200);
+
+
+
+            //getSettings(handleSucces, handleError);
             function handleSucces(c, a, w)
             {
-                   alert(w + c + a) ;
                     $("#category").val(c);
                     $("#distance").val(a);
                     $('#category').selectmenu('refresh');

@@ -22,16 +22,6 @@
 
 
 
-.next {
-    width: 43px;
-    height: 44px;
-    background: url(./img/nextprev.png);
-}
-
-.prev {
-
-}
-
 
 .label {
     display: inline !important;
