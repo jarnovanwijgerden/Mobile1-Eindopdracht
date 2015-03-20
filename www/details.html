@@ -99,21 +99,13 @@
 
             $('#btnbackdetails').on("tap", function() 
             { 
-                window.history.back(-1);
+              $.mobile.changePage("results.html");
             });
 
                 if(rating != null)
                {
                                     
                     $("#rating").html("Dit restaurant heeft de volgende waardering: " + data.rating);
-
-                    var j = 0;
-                    for(i=0; i < rating; i = i + 10)
-                    {
-
-                       $("#stars").html("<img src ='img/Star-Full.png' style='margin-left:" + j +"%; width:3%;'>");
-                       j = j + 2.5;
-                    }
                }
                $("#details").html(description);
 
