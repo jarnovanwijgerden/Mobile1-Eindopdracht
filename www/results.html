@@ -60,12 +60,30 @@
             $("#btnnext").on("tap",function()
             {
 
+                $.mobile.loading('show');
                 var nexturl = data.pagination.next_page;
                 getRestaurantsByQuery(nexturl, function(newdata)
                 {   
                     data =  JSON.parse(newdata);
                     fillListview(data);
                     disableButtons(data);
+                    $.mobile.loading('hide');
+                });
+
+            });
+
+
+            $("#btnback").on("tap",function()
+            {
+
+                $.mobile.loading('show');
+                var nexturl = data.pagination.previous_page;
+                getRestaurantsByQuery(nexturl, function(newdata)
+                {   
+                    data =  JSON.parse(newdata);
+                    fillListview(data);
+                    disableButtons(data);
+                    $.mobile.loading('hide');
                 });
 
             });
