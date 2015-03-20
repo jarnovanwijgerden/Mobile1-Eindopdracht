@@ -98,8 +98,8 @@
         <script type="text/javascript">
 
      
-        $(document).off('pagebeforeshow');
-        $(document).on('pagebeforeshow', '#restaurants', function(){      
+        $(document).off('pagecreate');
+        $(document).on('pagecreate', '#restaurants', function(){      
 
             $("#btngo").on("tap", function()
             {
@@ -116,7 +116,7 @@
 
             setTimeout(function() {
                 getSettings(handleSucces, handleError);
-            }, 350);
+            }, 1000);
             
             function handleSucces(c, a, w)
             {
