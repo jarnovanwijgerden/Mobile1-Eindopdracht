@@ -22,6 +22,18 @@
 
 
 
+.ui-panel-inner {
+    padding:0px; /*make the buttons flush edge to edge*/
+}
+.ui-controlgroup {
+    margin:0; /*make the buttons flush to the top*/
+}
+#header {
+    height:54px;
+}
+#bars-button {
+    margin:7px;
+}
 
 .label {
     display: inline !important;

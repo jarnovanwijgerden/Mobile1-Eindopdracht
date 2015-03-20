@@ -35,18 +35,19 @@
             <div style="background: #f1f1f1;">
                 <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
             </div>
-           
-            <header class="header">
-                <nav class="nav-container">
-                    <div class="nav-toggle">Menu</div>
-                    <ul class="nav">
-                        <li> <a href ="index.html" data-transition="slide"> Home </a></li>
-                        <li> <a href ="restaurants.html" data-transition="slide"> Restaurants </a></li>
-                        <li> <a href ="contact.html" data-transition="slide"> Contact </a></li>
-                        <li> <a href ="settings.html" data-transition="slide"> Settings </a></li>  
-                    </ul>
-                </nav>
-            </header>
+                 <div data-role="panel" id="navpanel" data-theme="a" data-display="overlay" data-position="right">
+                    <div data-role="controlgroup" data-corners="false">
+                        <a href ="index.html" data-transition="slide" data-role="button" style="padding: 20 20px;" data-icon="arrow-r">Home</a>
+                        <a href ="restaurants.html" data-transition="slide" data-role="button" style="padding: 20 20px; margin-top: 20px;" data-icon="arrow-r">Restaurants</a>
+                        <a href ="contact.html" data-transition="slide" data-role="button" style="padding: 20 20px; margin-top: 20px;" data-icon="arrow-r">Contact</a>
+                        <a href ="settings.html" data-transition="slide" data-role="button" style="padding: 20 20px; margin-top: 20px;" data-icon="arrow-r">Settings</a>
+                    </div>
+                </div>
+
+                <div id="header" data-role="header" data-theme="a" data-add-back-btn="true">
+                    <a id="bars-button" data-icon="bars" class="ui-btn-right" style="margin-top:0px;" href="#navpanel">Menu</a>
+                </div>
+                
            
             <p class="homeInfo">Zoek eenvoudig restaurants bij jouw in de buurt!</p>
             <p class="homeDetails basicText">Via deze App kan er op restaurants gezocht worden, dit door middel van categorie, waarderingen van klanten maar ook op afstand van jouw huidige locatie. Ook kan er contactgegevens gevonden worden van restaurants en kunnen er reviews bekeken worden.</p>
