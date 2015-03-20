@@ -1,75 +1,55 @@
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
-      
-
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<div data-role="page" id="detailspage">
+   <div data-role="main">
+   
+    <div style="background: #f1f1f1;">
+        <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
+    </div>
 
-        <script type="text/javascript" src="js/device.js"></script>
-        <script type="text/javascript" src="js/database.js"></script>
-        
-        <script type="text/javascript" src="js/api.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/pageinit.js"></script>
-
-        <link href="css/tabmenu.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
-        <div style="background: #f1f1f1;">
-            <img src="img/eetnu-logo2.png" alt="Eet.nu" class="homeImage">
-        </div> 
-
-        <title>Details</title>
-        <div data-role="panel" id="navpanel" data-theme="a" data-display="overlay" data-position="right">
-            <div data-role="controlgroup" data-corners="false">
-                <a href ="index.html" data-transition="slide" data-role="button" style="padding: 20 20px;" data-icon="arrow-r">Home</a>
-                <a href ="restaurants.html" data-transition="slide" data-role="button" style="padding: 20 20px; margin-top: 20px;" data-icon="arrow-r">Restaurants</a>
-                <a href ="contact.html" data-transition="slide" data-role="button" style="padding: 20 20px; margin-top: 20px;" data-icon="arrow-r">Contact</a>
-                <a href ="settings.html" data-transition="slide" data-role="button" style="padding: 20 20px; margin-top: 20px;" data-icon="arrow-r">Settings</a>
-            </div>
+      <div data-role="panel" id="navpanel" data-theme="a" data-display="overlay" data-position="right">
+        <div data-role="controlgroup" data-corners="false">
+            <a href ="index.html" data-transition="slide" data-role="button" style="padding: 20 20px;" data-icon="arrow-r">Home</a>
+            <a href ="restaurants.html" data-transition="slide" data-role="button" style="padding: 20 20px; margin-top: 20px;" data-icon="arrow-r">Restaurants</a>
+            <a href ="contact.html" data-transition="slide" data-role="button" style="padding: 20 20px; margin-top: 20px;" data-icon="arrow-r">Contact</a>
+            <a href ="settings.html" data-transition="slide" data-role="button" style="padding: 20 20px; margin-top: 20px;" data-icon="arrow-r">Settings</a>
         </div>
+    </div>
 
-        <div id="header" data-role="header" data-theme="a" data-add-back-btn="true">
-            <a id="bars-button" data-icon="bars" class="ui-btn-right" style="margin-top:0px;" href="#navpanel">Menu</a>
-        </div>
-    
+    <div id="header" data-role="header" data-theme="a" data-add-back-btn="true">
+        <a id="bars-button" data-icon="bars" class="ui-btn-right" style="margin-top:0px;" href="#navpanel">Menu</a>
+    </div>
 
-        <div data-role="tabs" id="tabs">
-          <div data-role="navbar">
-            <ul>
-              <li><a href="#one" class="ui-btn-active" id="headerone" data-ajax="false">Informatie</a></li>
-              <li><a href="#two" id= "headertwo" data-ajax="false">Reviews</a></li>
-              <li><a href="#three" id="headerthree" data-ajax="false">Details</a></li>
+
+
+
+        <div class="tabs tabs_controls">
+            <a id="prev"></a>
+             <a id="next"></a>
+            <ul class="horizontal">
+                <li class="active"><a href="#tab-1">Info</a></li>
+                <li><a href="#tab-2">Reviews</a></li>
+                <li><a href="#tab-3">Details</a></li>
             </ul>
-          </div>
-          <div id="one" class="ui-body-d ui-content">
-            <p id="info" class="homeInfo"></p> 
-            <p id="details" class="basicText"></p>
-            <p id="rating" class="basicText"></p>
-            <p id="stars" class="basicText"></p>
-          </div>
-          <div id="two">
+            <div id="tab-1" style="display: none; background-color: #FFFFFF !important;">
+
+                <p id="info" class="homeInfo"></p> 
+                <p id="details" class="basicText"></p>
+                <p id="rating" class="basicText"></p>
+            </div>
+            <div id="tab-2" style="display: none;">
+
+
             <ul id="reviews" data-role="listview" data-inset="true">
                 <li data-role="list-divider">Lijst met reviews<span id="count" class="ui-li-count">2</span></li>
             </ul>
-          </div>
 
-          <div id="three">
 
-            <p class="homeInfo">Contact gegevens</p> 
+            </div>
+            <div id="tab-3" style="display: none; background-color: #FFFFFF !important;">
+
+                <p class="homeInfo">Contact gegevens</p> 
             <p id="street" class="basicText"> Straat : </p>
             <p id="city" class="basicText"> Woonplaats : </p>
             <p id="regio" class="basicText"> Provincie : </p>
@@ -78,40 +58,50 @@
             <p id="tel" class="basicText"> Telefoon : </p>
             <p id="url" class="basicText"> Website : </p>
 
-          </div>
+
+            </div>
         </div>
 
-         <script type="text/javascript">
 
+    <script type="text/javascript">
+        $(document).off('pagebeforeshow');
+        $(document).on('pagebeforeshow', '#detailspage', function(){      
+         
+         $("#prev").hide();
+         $("#next").hide();
 
-         $(document).ready(function()
-         {
-
-                var data =  JSON.parse(localStorage.getItem("restaurant"));
-               $("#info").html("Restaurant " + data.name);
-
-               var description = data.description;
-               if(description == null)
-               {
-                    description = "Dit restaurant heeft geen beschrijving";
-               }
-
-
-            $('#btnbackdetails').on("tap", function() 
-            { 
-              $.mobile.changePage("results.html");
+            $('.tabs').tabslet({
+                controls: {
+                    prev: '#prev',
+                    next: '#next'
+                }
             });
 
-                if(rating != null)
-               {
+            $(document).swiperight(function() {
+
+                $("#prev").click();
+            });
+            $(document).swipeleft(function() {
+                $("#next").click();
+            });
+
+            var data =  JSON.parse(localStorage.getItem("restaurant"));
+            $("#info").html("Restaurant " + data.name);
+
+            var description = data.description;
+            if(description == null)
+            {
+                description = "Dit restaurant heeft geen beschrijving";
+            }
+
+
+            if(rating != null)
+            {
                                     
-                    $("#rating").html("Dit restaurant heeft de volgende waardering: " + data.rating);
-               }
-               $("#details").html(description);
-
-
-               //reviews
-               getReviewsByID(data.id, function(response)
+                $("#rating").html("Dit restaurant heeft de volgende waardering: " + data.rating);
+            }
+            $("#details").html(description);
+            getReviewsByID(data.id, function(response)
                {
                     var reviews = JSON.parse(response);
                     $("#count").html(reviews.results.length);
@@ -123,62 +113,34 @@
                     }
                     $("#reviews").listview("refresh");
                });
-
-               $('#reviews li').click(function(e) 
-              { 
+            $('#reviews li').click(function(e) 
+            { 
                 var innertext = $(this).find( "p" ).text();
                 alert(innertext);
-              });
+            });
 
-               //contact
-               $("#street").append(data.address.street);
-               $("#city").append(data.address.city);
-               $("#regio").append(data.address.region);
-               $("#post").append(data.address.zipcode);
-               $("#country").append(data.address.country);
-               $("#tel").append('<a href="tel:' + data.telephone + '">'+ data.telephone + '</a>');
-               $("#url").append("<a id='website'>"+data.website_url+"</a>");
 
-               $("#website").on("click",function()
-               {
+             //contact
+           $("#street").append(data.address.street);
+           $("#city").append(data.address.city);
+           $("#regio").append(data.address.region);
+           $("#post").append(data.address.zipcode);
+           $("#country").append(data.address.country);
+           $("#tel").append('<a href="tel:' + data.telephone + '">'+ data.telephone + '</a>');
+           $("#url").append("<a id='website'>"+data.website_url+"</a>");
 
-                  var url = $(this).text();
-                  appBrowser(url);
-               });
+           $("#website").on("click",function()
+           {
 
-              $(document).swiperight(function() {
-                var active = $( "#tabs" ).tabs( "option", "active" );
+              var url = $(this).text();
+              appBrowser(url);
+           });
 
-                if(active > 0)
-                {
-                  var element = $("#tabs").find( ".ui-tabs-panel" )[active];
-                  $("#header" +element.id).removeClass("ui-btn-active");
-                  $("#tabs").tabs( "option", "active", active-1);
-                  var element=   $("#tabs").find( ".ui-tabs-panel" )[active-1];
-                  $("#header" + element.id).addClass("ui-btn-active");
 
-                }
-              });
-              $(document).swipeleft(function() {
-                var active = $( "#tabs" ).tabs( "option", "active" );
-                if(active < 2)
-                {
-                  var element = $("#tabs").find( ".ui-tabs-panel" )[active];
-                  $("#header" +element.id).removeClass("ui-btn-active");
-                  $("#tabs").tabs( "option", "active", active+1);
-                  var element=   $("#tabs").find( ".ui-tabs-panel" )[active+1];
-                  $("#header" + element.id).addClass("ui-btn-active");
-                }
-              });
 
-         });
+        });
+    </script>
 
-        </script>
-        
-        <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
-
- </body>
-</html>
-
-   
-
+    <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
+</div>
+</div>

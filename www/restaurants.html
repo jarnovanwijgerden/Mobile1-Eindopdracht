@@ -114,14 +114,8 @@
                  });
             });
 
-            $('#btnbackrestaurants').on("tap", function() 
-            {
-                window.history.back(-1);
-            });
-
-
             setTimeout(function() {
-                //getSettings(handleSucces, handleError);
+                getSettings(handleSucces, handleError);
             }, 200);
             
             function handleSucces(c, a, w)
