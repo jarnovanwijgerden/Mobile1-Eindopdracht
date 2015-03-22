@@ -57,6 +57,7 @@
             <p id="country" class="basicText"> Land : </p>
             <p id="tel" class="basicText"> Telefoon : </p>
             <p id="url" class="basicText"> Website : </p>
+            <p id="nav" class="basicText"></p>
 
 
             </div>
@@ -128,6 +129,9 @@
            $("#country").append(data.address.country);
            $("#tel").append('<a href="tel:' + data.telephone + '">'+ data.telephone + '</a>');
            $("#url").append("<a id='website'>"+data.website_url+"</a>");
+           $("#nav").append('<a href="geo:'+ data.geolocation.latitude+','+ data.geolocation.latitude+'">Start Navigatie</a>');
+
+
 
            $("#website").on("click",function()
            {
