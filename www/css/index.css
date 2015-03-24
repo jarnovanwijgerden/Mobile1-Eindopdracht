@@ -22,6 +22,14 @@
 
 
 
+.sprite { background: url('../img/sprite.png') no-repeat top left; width: 66px; height: 44px;  } 
+.sprite.save { background-position: 0 0; width: 120px; } 
+.sprite.nextsprite { background-position: 0 -54px; height: 61px; } 
+.sprite.prevsprite { background-position: 0 -125px; height: 61px; } 
+.sprite.reset { background-position: 0 -196px; width: 120px; } 
+
+
+
 .ui-panel-inner {
     padding:0px; /*make the buttons flush edge to edge*/
 }

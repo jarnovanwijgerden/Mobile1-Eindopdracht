@@ -97,7 +97,10 @@
 
         <br>
         <br>
-        <button id="btnsave" class="basicText" style="display:inline-block; margin-left:5%; width:40%">Opslaan</button><button id="btnleeg" class="basicText" style="display:inline-block; margin-left:10%; width:40%">Reset</button>
+
+
+        <div class="sprite save" id="btnsave" style="display:inline-block; margin-left:5%; width:80%"></div>
+        <div class="sprite reset" id="btnleeg" style="display:inline-block; margin-right:5%;"></div>
 
 
         <p class="basicText homeFooter">Deze App is gemaakt door Louis Hol en Jarno van Wijgerden.</p>
@@ -125,7 +128,7 @@
             });
 
             setTimeout(function() {
-                getSettings(handleSucces, handleError);
+                //getSettings(handleSucces, handleError);
             }, 1000);
             function handleSucces(c, a, w)
             {
