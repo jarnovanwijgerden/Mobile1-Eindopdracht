@@ -44,7 +44,7 @@
             });
 
         $(document).off('pageinit');
-        $(document).on('pageinit', '#results', function(){  
+        $(document).on('pageinit', '#results', function(){   
             var data =  JSON.parse(localStorage.getItem("data"));
 
             fillListview(data);
