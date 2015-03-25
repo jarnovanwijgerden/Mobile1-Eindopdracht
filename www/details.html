@@ -129,7 +129,7 @@
            $("#tel").append('<a href="tel:' + data.telephone + '">'+ data.telephone + '</a>');
            $("#url").append("<a id='website'>"+data.website_url+"</a>");
            // $("#nav").append('<a href="geo:'+ data.geolocation.latitude+','+ data.geolocation.longitude+'">Toon op kaart</a>');
-           $("#nav").append('<a href="geo:'+ data.geolocation.latitude+','+ data.geolocation.longitude+'?q='+ data.geolocation.longitude+','+ data.geolocation.longitude+ '">Toon op kaart</a>');
+           $("#nav").append('<a href="geo:'+ data.geolocation.latitude+','+ data.geolocation.longitude+'?q='+ data.geolocation.latitude+','+ data.geolocation.longitude+ '">Toon op kaart</a>');
 
            $("#website").on("tap",function()
            {
