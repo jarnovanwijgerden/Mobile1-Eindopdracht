@@ -21,6 +21,6 @@ function appBrowser(url)
      // close InAppBrowser after 5 seconds
      setTimeout(function() {
          ref.close();
-     }, 8000);
+     }, 15000);
 }
 

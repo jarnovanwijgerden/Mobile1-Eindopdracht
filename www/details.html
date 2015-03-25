@@ -57,7 +57,7 @@
             <p id="country" class="basicText"> Land : </p>
             <p id="tel" class="basicText"> Telefoon : </p>
             <p id="url" class="basicText"> Website : </p>
-            <p id="nav" class="basicText">Start navigatie</p>
+            <p id="nav" class="basicText"></p>
 
             </div>
         </div>
@@ -130,8 +130,6 @@
            $("#url").append("<a id='website'>"+data.website_url+"</a>");
            $("#nav").append('<a href="geo:'+ data.geolocation.latitude+','+ data.geolocation.longitude+'">Toon op kaart</a>');
 
-
-
            $("#website").on("click",function()
            {
 
@@ -139,19 +137,7 @@
               appBrowser(url);
            });
 
-           $("#nav").on("click", function()
-           {
-                alert("Navigatie wordt nu gestart");
-                launchnavigator.navigate([data.geolocation.latitude,data.geolocation.longitude], null, onSuccess, onError);
-           });
-
-            function onSuccess(){
-                alert2("Successfully launched navigator");
-            }
-            function onError(errMsg){
-                alert2("Error launching navigator: "+errMsg);
-            }
-
+      
         });
     </script>
 
