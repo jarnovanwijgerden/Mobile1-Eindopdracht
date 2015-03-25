@@ -130,7 +130,7 @@
            $("#url").append("<a id='website'>"+data.website_url+"</a>");
            $("#nav").append('<a href="geo:'+ data.geolocation.latitude+','+ data.geolocation.longitude+'">Toon op kaart</a>');
 
-           $("#website").on("click",function()
+           $("#website").on("tap",function()
            {
 
               var url = $(this).text();

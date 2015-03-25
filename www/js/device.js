@@ -14,6 +14,7 @@ function getGeolocation(callback)
 
 function appBrowser(url)
 {
+    alert(url);
 	var ref = window.open(url, '_blank', 'hidden=yes');
      ref.addEventListener('loadstop', function(event) {
          alert('Website laden duurt te lang'); 
