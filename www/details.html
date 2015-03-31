@@ -56,6 +56,7 @@
             <p id="post" class="basicText"> Postcode : </p>
             <p id="country" class="basicText"> Land : </p>
             <p id="tel" class="basicText"> Telefoon : </p>
+            <p id="sms" class="basicText"> SMS : </p>
             <p id="url" class="basicText"> Website : </p>
             <p id="nav" class="basicText"></p>
 
@@ -119,14 +120,13 @@
                 alert(innertext);
             });
 
-
-             //contact
            $("#street").append(data.address.street);
            $("#city").append(data.address.city);
            $("#regio").append(data.address.region);
            $("#post").append(data.address.zipcode);
            $("#country").append(data.address.country);
            $("#tel").append('<a href="tel:' + data.telephone + '">'+ data.telephone + '</a>');
+            $("#sms").append('<a href="sms:' + data.telephone + '">'+ data.telephone + '</a>');
            $("#url").append("<a id='website'>"+data.website_url+"</a>");
            // $("#nav").append('<a href="geo:'+ data.geolocation.latitude+','+ data.geolocation.longitude+'">Toon op kaart</a>');
            $("#nav").append('<a href="geo:'+ data.geolocation.latitude+','+ data.geolocation.longitude+'?q='+ data.geolocation.latitude+','+ data.geolocation.longitude+ '">Toon op kaart</a>');
