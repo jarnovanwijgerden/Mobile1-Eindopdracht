@@ -39,10 +39,13 @@ function getSettings(succes, error) {
     var categorie = "";
     var afstand = "";
     var waardering = "";
+    alert("ioN DE SETTINGS");
     db.transaction(function(trans)
     { 
+        alert("In de dbtans");
         trans.executeSql('SELECT * FROM settings', [], function(trans, results)
         {
+            alert("in de select statement");
             var len = results.rows.length;
             if(len>0)
             {
@@ -64,7 +67,6 @@ function getSettings(succes, error) {
 }
 
 
- 
 function SaveSettings(categorie, afstand, waardering)
 {
     clearTable();
