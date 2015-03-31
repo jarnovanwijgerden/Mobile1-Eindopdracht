@@ -134,7 +134,7 @@
 
     function clearTable(tx) {
 
-        trans.executeSql('DELETE FROM settings');
+        tx.executeSql('DELETE FROM settings');
     }
 
 
