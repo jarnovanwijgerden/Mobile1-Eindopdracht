@@ -24,6 +24,7 @@
 
   <gap:plugin name="org.apache.cordova.geolocation"/>
   <gap:plugin name="org.apache.cordova.inappbrowser"/>
+  <gap:plugin name="com.brodysoft.sqliteplugin" version="1.0.6" />
 
   <icon src="icon.png"/>
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>

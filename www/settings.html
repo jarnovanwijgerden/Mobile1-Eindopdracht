@@ -129,7 +129,7 @@
             });
 
             setTimeout(function() {
-                getSettings(handleSucces, handleError);
+                getSettings(handleSucces);
             }, 1000);
             function handleSucces(c, a, w)
             {
@@ -146,10 +146,7 @@
                         $("#waardering").prop('checked', false);
                     }
             }
-            function handleError(err)
-            {
-                alert("error : " + err);
-            }
+
 
         });
         /*$(document).ready(function()
